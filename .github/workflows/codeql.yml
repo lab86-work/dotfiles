@@ -22,9 +22,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # security-extended includes the secrets detection queries
-          - language: javascript-typescript
-          - language: python
+          # This dotfiles repo contains no application source code, only
+          # GitHub Actions workflows, so we analyze those.
+          - language: github-actions
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
