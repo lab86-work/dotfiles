@@ -2,7 +2,7 @@
 # Aliases are split into their own file to keep ~/.zshrc clean.
 
 # ── File system ───────────────────────────────────────────────────────────────
-alias ll='ls -alF'
+alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 alias ..='cd ..'

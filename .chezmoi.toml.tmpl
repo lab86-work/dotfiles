@@ -1,3 +1,4 @@
 [data]
-    name  = "{{ promptString "Full name" }}"
-    email = "{{ promptString "Email" }}"
+    # Optional, used only if you configure git locally. Leave blank to skip.
+    name  = "{{ promptString "Full name (optional)" "" }}"
+    email = "{{ promptString "Email (optional)" "" }}"
