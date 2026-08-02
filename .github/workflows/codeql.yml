@@ -24,7 +24,7 @@ jobs:
         include:
           # This dotfiles repo contains no application source code, only
           # GitHub Actions workflows, so we analyze those.
-          - language: github-actions
+          - language: actions
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
