@@ -201,7 +201,7 @@ main() {
 
   echo ""
   step "Done! Next steps"
-  echo "  1. Apply dotfiles:       chezmoi init --apply git@github.com:lab86-work/dotfiles.git"
+  echo "  1. Apply dotfiles:       ~/.local/bin/chezmoi init --apply https://github.com/lab86-work/dotfiles.git"
   echo "  2. Configure prompt:     p10k configure"
   echo "  3. Restart your shell or run: exec zsh"
   echo ""

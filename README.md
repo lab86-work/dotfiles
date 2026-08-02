@@ -16,18 +16,18 @@ A public, self-contained dotfiles repo with no secret-manager dependencies (no 1
 sh -c "$(curl -fsLS get.chezmoi.io)"
 ```
 
-This installs the `chezmoi` binary to `~/.local/bin` using the official installer.
+This installs the `chezmoi` binary to `~/bin` using the official installer.
 
 ### 2. Init from this repo
 
 ```bash
-chezmoi init git@github.com:lab86-work/dotfiles.git
+bin/chezmoi init https://github.com/lab86-work/dotfiles.git
 ```
 
-This clones the repo to `~/.local/share/chezmoi` over SSH.
+This clones the repo to `~/.local/share/chezmoi` over HTTPS.
 
-You will be prompted for:
-- **Full name** and **Email** (used in git config etc.)
+You will be prompted for (both **optional**, can be left blank):
+- **Full name** and **Email** (only needed if you configure git to push changes)
 
 ### 3. Apply dotfiles
 
