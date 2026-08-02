@@ -28,4 +28,4 @@ jobs:
           path: ${{ github.workspace }}
           base: ""
           head: ""
-          extra_args: --result-verification --no-update
+          extra_args: --results=verified,unknown --no-update
