@@ -1,0 +1,30 @@
+name: Security - Secret Scanning (Gitleaks)
+
+on:
+  push:
+  pull_request:
+  schedule:
+    # Run every day at 02:00 UTC to catch any secrets that may have slipped through
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  # Required to post findings as pull request comments
+  pull-requests: read
+
+jobs:
+  gitleaks:
+    name: Scan for secrets (Gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          # Fetch full history so Gitleaks can scan all commits
+          fetch-depth: 0
+
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

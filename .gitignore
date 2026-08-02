@@ -1,0 +1,33 @@
+# Ignore sensitive files that should never be committed
+
+# SSH keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ecdsa
+id_ed25519
+id_dsa
+*.pub
+
+# Environment and secret files
+.env
+.env.*
+*.env
+!*.env.example
+
+# chezmoi auto-generated age / gpg key files
+key.txt
+
+# chezmoi state database (local artifact from chezmoi apply)
+chezmoistate.boltdb
+
+# Editor backup and swap files
+*~
+*.swp
+*.swo
+
+# OS metadata
+.DS_Store
+Thumbs.db

@@ -1,0 +1,45 @@
+# ~/.zshrc — managed by chezmoi
+
+# ── Powerlevel10k instant prompt ─────────────────────────────────────────────
+# Must stay close to the top of ~/.zshrc.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# ── oh-my-zsh ─────────────────────────────────────────────────────────────────
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Plugins
+# Note: zsh-autosuggestions and zsh-syntax-highlighting must be installed first.
+# Run run_once_install.sh or do it manually:
+#   git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions \
+#       ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+#   git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting \
+#       ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+plugins=(
+  git
+  chezmoi
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+source "$ZSH/oh-my-zsh.sh"
+
+# ── Environment ───────────────────────────────────────────────────────────────
+export LANG=en_US.UTF-8
+typeset -U path PATH
+path=(
+  "$HOME/.opencode/bin"
+  "$HOME/.local/bin"
+  "$HOME/bin"
+  $path
+)
+
+# ── Aliases ───────────────────────────────────────────────────────────────────
+[[ -f "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
+
+# ── Powerlevel10k config ──────────────────────────────────────────────────────
+# Run `p10k configure` to regenerate this file with the interactive wizard.
+[[ -f "$HOME/.p10k.zsh" ]] && source "$HOME/.p10k.zsh"

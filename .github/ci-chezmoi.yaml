@@ -1,0 +1,5 @@
+# CI configuration override for chezmoi template dry-run validation.
+# Provides safe defaults so all promptString calls resolve in CI.
+data:
+  name: "CI"
+  email: "ci@example.com"

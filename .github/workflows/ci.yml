@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate chezmoi configuration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install chezmoi
+        run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/local/bin
+
+      - name: Verify chezmoi version
+        run: chezmoi --version
+
+      - name: Validate chezmoi templates (dry run)
+        # Uses .github/ci-chezmoi.yaml to supply default values for all
+        # promptString calls so validation requires no interactive input.
+        run: |
+          mkdir -p /tmp/test-home
+          chezmoi apply \
+            --config="${GITHUB_WORKSPACE}/.github/ci-chezmoi.yaml" \
+            --source="${GITHUB_WORKSPACE}" \
+            --destination=/tmp/test-home \
+            --dry-run \
+            --verbose
