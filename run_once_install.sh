@@ -66,7 +66,7 @@ setup_zsh() {
   fi
 
   if confirm "Set zsh as the default shell for $USER?" y; then
-    sudo chsh -s "$(command -v zsh)"
+    sudo chsh -s "$(command -v zsh)" "$USER"
     info "Default shell changed to zsh. Log out and back in to take effect."
   fi
 }
