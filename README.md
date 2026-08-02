@@ -21,7 +21,7 @@ This installs the `chezmoi` binary to `~/bin` using the official installer.
 ### 2. Init from this repo
 
 ```bash
-bin/chezmoi init https://github.com/lab86-work/dotfiles.git
+bin/chezmoi init --apply https://github.com/lab86-work/dotfiles.git
 ```
 
 This clones the repo to `~/.local/share/chezmoi` over HTTPS.
